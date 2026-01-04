@@ -1,0 +1,51 @@
+Projet : Heart Failure.
+
+Objectif : développé un modèle de Machine Learning permettant de déterminer si un patient a un cœur en mauvaise santé ou non.
+
+
+
+Choses à faire :
+
+ 1) Exploration des données
+
+	- Analyse univariée des variables numériques et catégorielles (choisir les graphiques appropriés) et détection d'outlier (savoir à peu près combien il y en sans les compter de manière précise)
+	- Analyse multivariée : analyse des liens entre variables numériques et catégorielles (utiliser les outils statistiques appropriés : corrélation, Chi-2, etc.).
+	- Pendant l'analyse, vérifier si dans les variables explicatives les classes sont fortement déséquilibrées ou non, 
+
+2) Traitement des données
+
+ 	- Vérifier la présence d'outliers de manière multivariée sur les données numériques seulement. Utilisation de l'algorithme IsolationForest de scikit-learn pour détecter les individus "extrêmes".
+	- Suppression des doublons (s'il y en a)
+	- Imputer les valeurs manquantes (s'il y en a) grâce à l'algorithme KNNImputer de sikit-learn. Si présence de données manquantes pour les variables catégorielles, utiliser le mode pour l'imputation des valeurs manquantes pour seulement ces variables catégorielles.
+	- Mise à l'échelle des données NUMERIQUES seulement
+	- Transformation des données numériques en utilisant l'ACP (uniquement si c'est réellement nécessaire).
+	- Encoder les variables catégorielles.
+	- Vérifier si la variable cible est équilibrée. Si non, utiliser l'algorithme SMOTE pour équilibrer la variable.
+
+3) Modélisation
+	
+	- Comparer 3 modèles de classification : un modèle simple, un modèle moyennement complexe, un modèle complexe.
+	- Chercher les hyperparamètres pour ces 3 modèles par un RandomSearch PAS UN GRIDSEARCH. Utiliser la métrique la plus utile d'un point de vue métier pour la recherche.
+	- Avec les hyperparamètres sélectionnés pour chaque modèle, évaluer les performance de chaque modèle, par validation croisée (algorithme : cross_validate de scikit-learn) : UTILISER LA METRIQUE LA PLUS PERTINENTE (cf. cela doit être la même métrique utilisée lors de la recherche des hyperparamètres)
+	- Construire la matrice de confusion du modèle sélectionné
+	- Choisir le meilleur modèle selon les performances et la complexité des modèles (+ expliquer pourquoi telle métrique st utilisée plutôt qu'une autre)
+	- Conclusion
+
+4) Présentation PowerPoint
+
+On doit y retrouver une histoire qui montre les résultats sans de surplus trop technique (tout doit être compréhensible) :
+	- Analyse exploratoire (graphiques + résultats + déductions de l'analyse + conséquences/précautions sur le traitement des données)
+	- Résultats de la modélisation : chiffres ou graphiques comparant les différentes performances des modèles utilisés + conclusion sur le choix du 					modèle et pourquoi ce choix.
+	- Interprétation des métriques et implications dans le contexte métier.
+	- Possibles améliorations du projet
+
+
+Rendu du projet :
+
+- Code Python (format .py pas .ipynb) où l'on retrouve toutes les démarches : traitement et modélisation
+A GARDER EN TETE : le code doit être exécutable d'un coup sans qu'il n'y ait une erreur
+
+- PowerPoint (format pptx ou pdf, au choix) utilisé pour la présentation. Attention les graphiques doivent être lisibles et facilement compréhensible (cf. titre des graphique et no des axes)
+
+- Point important : la forme (propreté et organisation du code/PowerPoint) compte pour 50%.
+- Tout manquement aux consignes sera pénalisé.
